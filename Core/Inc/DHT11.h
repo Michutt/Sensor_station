@@ -17,7 +17,7 @@ void pin_Output(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
 void pin_Input(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
 void delay(uint32_t delay);
 void DHT11_Init();
-void DHT11_Receive_Data();
+void DHT11_Receive_Data(uint8_t *humidity, uint8_t *temperature);
 uint8_t DHT11_Check_Response();
 uint8_t DHT11_Read_Byte();
 

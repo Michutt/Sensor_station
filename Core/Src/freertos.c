@@ -47,7 +47,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-
+uint8_t temperature = 0;
+uint8_t humidity = 0;
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 
@@ -124,17 +125,14 @@ void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
   /* Infinite loop */
-  for(;;)
-  {
-	  DHT11_Receive_Data();
-	  osDelay(2000);
-//	  uint8_t recv = 0;
-//	  static char data[10];
-//	  osDelay(1);
-//	  recv = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
-//	  sprintf((char *)data, "-- %i --\r\n", recv);
-//	  HAL_UART_Transmit(&huart2, data, sizeof(data), 100);
-  }
+	for(;;)
+	{
+		DHT11_Receive_Data(&humidity, &temperature);
+		HAL_Delay(2000);
+//		static char data[20];
+//		sprintf((char *)data, "-%i-%i\r\n", humidity, temperature);
+//		HAL_UART_Transmit(&huart2, data, sizeof(data), 100);
+	}
   /* USER CODE END StartDefaultTask */
 }
 

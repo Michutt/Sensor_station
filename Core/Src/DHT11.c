@@ -75,7 +75,7 @@ uint8_t DHT11_Read_Byte()
 	return data;
 }
 
-void DHT11_Receive_Data()
+void DHT11_Receive_Data(uint8_t *humidity, uint8_t *temperature)
 {
 	DHT11_Init();
 	if (DHT11_Check_Response())
@@ -84,9 +84,9 @@ void DHT11_Receive_Data()
 		uint8_t humL = DHT11_Read_Byte();
 		uint8_t tempM = DHT11_Read_Byte();
 		uint8_t tempL = DHT11_Read_Byte();
-		static char data[20];
-		sprintf((char *)data, "-%i-%i-%i-%i\r\n", tempM, tempL, humM, humL);
-		HAL_UART_Transmit(&huart2, data, sizeof(data), 100);
+
+		*humidity = humM;
+		*temperature = tempM;
 	}
 }
 
