@@ -1,0 +1,7 @@
+DHT11.c:12:6:pin_Output	40	static
+DHT11.c:22:6:pin_Input	40	static
+DHT11.c:31:6:delay	24	static
+DHT11.c:38:6:DHT11_Init	8	static
+DHT11.c:48:9:DHT11_Check_Response	16	static
+DHT11.c:62:9:DHT11_Read_Byte	16	static
+DHT11.c:78:6:DHT11_Receive_Data	24	static
